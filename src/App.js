@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       // "phrase" is the text entered by the user - right now there are test words hard coded to make the process of testing your code faster and easier
       // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
-      phrase: "alpha through yummy squeal queen fry",
+      phrase: "",
       // "phraseTranslated" is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the "submit" button
       phraseTranslated: "This is where your translated sentence will appear."
     }
@@ -35,11 +35,52 @@ class App extends Component {
 
       // your code here!
 
+      // starts with a vowel + way
+      // translatedWords + way
+      // else +ay
+      // through
+      // .indexOf(vowelsArray[0]) gives the index of o ==3
+      // translatedWordsArray[3]
+      // .slice to cut chunks off of arrays
+      //translatedWordsArray[i].slice(3,end) + translatedWordsArray[i].slice(0,3) + 'ay'
+      //
+      // qu
+      // .includes('qu') == true
+      // .indexOf('qu')
+      // translatedWordsArray[i].slice(3,end) + translatedWordsArray[i].slice(0,3) + 'ay'
+      //y
+      //cry = ycray
+      //.length to get length
+      // -1 from length to get index
+      //
+      //charAt(.length -1) = y
+      // change order of word
+      // run code
+
+// qu
+      if (currentWord.includes('qu') === true) {
+        return currentWord.slice(currentWord.indexOf('u')+1) + currentWord.slice(0,currentWord.indexOf('u')+1) + 'ay'
+// vowel
+      } else if (currentWord[0] === 'a' || currentWord[0] === 'e' || currentWord[0] === 'i' || currentWord[0] === 'o' || currentWord[0] === 'u') {
+        return currentWord + 'way'
+// y
+      } else if (currentWord.includes('y') && currentWord.includes('a') === false && currentWord.includes('e') === false && currentWord.includes('i') === false && currentWord.includes('o') === false && currentWord.includes('u') === false) {
+        return currentWord.slice(currentWord.indexOf('y')) + currentWord.slice(0,currentWord.indexOf('y')) + 'ay'
+// con
+      } else if (currentWord[0] !== 'a' || currentWord[0] !== 'e' || currentWord[0] !== 'i' || currentWord[0] !== 'o' || currentWord[0] !== 'u') {
+        return currentWord.slice(currentWord.indexOf(vowelsArray[0])) + currentWord.slice(0,currentWord.indexOf(vowelsArray[0])) + 'ay'
+
+}
+
+
+
+
+
       // Remember: console.log is your friend :)
 
 
       // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
-      return currentWord
+       return currentWord
     })
 
 
@@ -99,7 +140,7 @@ class App extends Component {
           <button onClick={this.restartGame}>Clear</button>
         </div>
         <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~your name here~</footer>
+        <footer>Coded by ~Earl, Kathy, LJ~</footer>
       </>
     )
   }
